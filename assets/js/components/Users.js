@@ -112,7 +112,6 @@ class Users {
         formData.append('pass', pass);
 
         let res = await Data_Service.request(this.method, this.link, formData);
-        console.log(res);
         if (res.status) {
             let user_state = {isLoggedIn: true, isOnline: true, name: res.name, uid: res.uid, loadUid: "", token: res.token};
             Local_Storage.setItem('user', user_state);
@@ -137,7 +136,6 @@ class Users {
         formData.append('token', token);
         
         let res = await Data_Service.request(this.method, this.link, formData);
-        console.log(res);
         if (res.status) {
             Local_Storage.clear();
             let user_state = {isLoggedIn: false, isOnline: false, name: "", uid: "", loadUid: "", token: ""};

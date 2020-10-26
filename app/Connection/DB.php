@@ -12,7 +12,9 @@ use App\Helpers\Helper;
  */
 class DB
 {
-    /** @var self $instance Instance of DataBase class */
+    /**
+     * @var self $instance Instance of DataBase class
+     */
     protected static ?DB $instance = null;
 
     /**
@@ -55,7 +57,7 @@ class DB
             $json = file_get_contents( $file );
             $data = json_decode( $json );
 
-            if ( $action == "read" && !empty( $position ) && $data->users[$position]->id == $addData['id'] ) {
+            if ( $action === "read" && isset( $position ) && $data->users[$position]->id == $addData['id'] ) {
                 $data = $data->users[$position];
             }
 

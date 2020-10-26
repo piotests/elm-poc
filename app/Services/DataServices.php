@@ -164,7 +164,7 @@ class DataServices
         
         $user = [];
         $fetchData = $this->instance->fileData();
-        
+
         for ( $i = 0; $i < count( $fetchData->users ); $i++ ) {
             $userDetails = [];
             if ( $action == "login" && $fetchData->users[$i]->email == $email && $fetchData->users[$i]->password == $pass ) {
@@ -187,14 +187,10 @@ class DataServices
             }
             
         }
-        
+
         if ( !empty( $user ) ) {
             if ( $action == "login" ) {
 
-                /**
-                 * @todo if user login return token -  it's for unit test UserServices
-                 * then you can save the token in property in class Test
-                 */
                 if ( empty( $_SESSION['token'] ) ) {
                     $_SESSION['token'] = bin2hex(random_bytes(32));
                 }
